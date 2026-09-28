@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shrey Bothra | Main Character Invitation 💃🕺</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+    }
+
+    /* Aesthetic Romantic + Garba Sunset Background */
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #2a085c, #641375, #d63031, #ff7675, #fdcb6e);
+      background-size: 400% 400%;
+      animation: ambientGlow 10s ease infinite;
+      overflow: hidden;
+      position: relative;
+    }
+
+    @keyframes ambientGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Soft Ambient Glow Overlay */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 118, 117, 0.4);
+      filter: blur(120px);
+      border-radius: 50%;
+      top: 20%;
+      left: 15%;
+      pointer-events: none;
+    }
+
+    body::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(253, 203, 110, 0.35);
+      filter: blur(120px);
+      border-radius: 50%;
+      bottom: 15%;
+      right: 15%;
+      pointer-events: none;
+    }
+
+    /* Floating Aesthetic Garba & Romantic Background Elements */
+    .bg-elements {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .floating-item {
+      position: absolute;
+      list-style: none;
+      display: block;
+      font-size: 1.8rem;
+      bottom: -100px;
+      animation: floatUp 12s linear infinite;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    }
+
+    .floating-item:nth-child(1) { left: 8%; animation-delay: 0s; font-size: 2.2rem; }
+    .floating-item:nth-child(2) { left: 28%; animation-delay: 3s; animation-duration: 10s; }
+    .floating-item:nth-child(3) { left: 52%; animation-delay: 6s; font-size: 2.5rem; }
+    .floating-item:nth-child(4) { left: 75%; animation-delay: 2s; animation-duration: 11s; }
+    .floating-item:nth-child(5) { left: 90%; animation-delay: 5s; font-size: 2rem; }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
+      20% { opacity: 0.9; }
+      80% { opacity: 0.9; }
+      100% { transform: translateY(-115vh) rotate(360deg) scale(1.1); opacity: 0; }
+    }
+
+    /* Main Card */
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      padding: 35px 25px 20px 25px;
+      border-radius: 28px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+      text-align: center;
+      max-width: 440px;
+      width: 90%;
+      z-index: 2;
+      animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      position: relative;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #d63031, #e84393);
+      color: white;
+      padding: 6px 18px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      border-radius: 20px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 15px rgba(232, 67, 147, 0.4);
+    }
+
+    .title {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: #2d3436;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+
+    .name-highlight {
+      background: linear-gradient(120deg, #d63031, #e84393);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #636e72;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    /* Perks Box */
+    .features-box {
+      background: rgba(245, 246, 250, 0.85);
+      border-radius: 20px;
+      padding: 18px;
+      margin-bottom: 22px;
+      text-align: left;
+      border: 1px dashed #e84393;
+    }
+
+    .features-box h3 {
+      font-size: 0.88rem;
+      color: #d63031;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: #2d3436;
+      font-weight: 700;
+      margin-bottom: 11px;
+    }
+
+    .feature-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-icon {
+      font-size: 1.25rem;
+      background: #ffffff;
+      padding: 6px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    /* Action Area */
+    .action-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      min-height: 60px;
+      position: relative;
+    }
+
+    .btn {
+      padding: 13px 30px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      outline: none;
+    }
+
+    .btn-yes {
+      background: linear-gradient(135deg, #00b894, #00cec9);
+      color: white;
+      box-shadow: 0 8px 22px rgba(0, 206, 201, 0.45);
+      animation: heartPulse 1.5s infinite;
+    }
+
+    .btn-yes:hover {
+      transform: scale(1.12);
+      box-shadow: 0 10px 28px rgba(0, 206, 201, 0.65);
+    }
+
+    @keyframes heartPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.07); }
+      100% { transform: scale(1); }
+    }
+
+    .btn-no {
+      background: linear-gradient(135deg, #ff4757, #ff6b81);
+      color: white;
+      box-shadow: 0 6px 18px rgba(255, 71, 87, 0.35);
+      position: relative;
+      transition: all 0.15s ease-out;
+    }
+
+    .funny-status {
+      font-size: 0.8rem;
+      color: #e84393;
+      font-weight: 700;
+      min-height: 20px;
+      margin-top: 6px;
+    }
+
+    .success-msg {
+      display: none;
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: #00b894;
+      margin-top: 10px;
+      line-height: 1.4;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Brand Copyright Footer */
+    .brand-copyright {
+      margin-top: 25px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 0.75rem;
+      color: #a4b0be;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-name {
+      color: #6c5ce7;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Garba + Romantic Floating Background Icons -->
+  <ul class="bg-elements">
+    <li class="floating-item">🥢</li>
+    <li class="floating-item">💖</li>
+    <li class="floating-item">🪔</li>
+    <li class="floating-item">✨</li>
+    <li class="floating-item">💃</li>
+  </ul>
+
+  <div class="card">
+    <span class="badge">Vibe Check Passed ✅</span>
+    <h1 class="title">Dandiya Night Partner?</h1>
+    <p class="subtitle">Will you be <span class="name-highlight">Shrey Bothra's</span> Garba partner?</p>
+
+    <div class="features-box">
+      <h3>Why Shrey is an S-Tier Partner 💖✨</h3>
+      <div class="feature-item">
+        <span class="feature-icon">👑</span>
+        <span>Main Character Energy & Pro Garba Steps</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">📸</span>
+        <span>Aesthetic Insta/Pinterest-worthy Pics</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🥹</span>
+        <span>100% Guaranteed Cute Smiles & Good Vibes</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">♾️</span>
+        <span>Zero Drama, Just Pure Iconic Memories</span>
+      </div>
+    </div>
+
+    <div class="action-area" id="actionArea">
+      <button class="btn btn-yes" onclick="handleYes()">YES! 💖</button>
+      <button class="btn btn-no" id="noBtn" onmouseover="dodgeNo()" onclick="dodgeNo()">No 🥺</button>
+    </div>
+
+    <div class="funny-status" id="funnyStatus"></div>
+
+    <div class="success-msg" id="successMsg">
+      YESSS! Best Decision Ever! 🥹🎉<br>
+      Get ready to match vibes & rock the floor with Shrey! 🪩✨
+    </div>
+
+    <div class="brand-copyright">
+      © <span class="brand-name">RuleVerse</span> | All Rights Reserved ✨
+    </div>
+  </div>
+
+  <script>
+    const funnyQuotes = [
+      "Nice try! But No is not an option 😏",
+      "Shrey is literally waiting! Say Yes! 🥹",
+      "Error 404: 'No' Button crashed 😜",
+      "You know you want to say YES! ✨",
+      "Dodging faster than your crush's texts! 💨"
+    ];
+
+    function dodgeNo() {
+      const btn = document.getElementById('noBtn');
+      const status = document.getElementById('funnyStatus');
+      
+      const x = (Math.random() - 0.5) * 250;
+      const y = (Math.random() - 0.5) * 160;
+
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+
+      const randomQuote = funnyQuotes[Math.floor(Math.random() * funnyQuotes.length)];
+      status.innerText = randomQuote;
+    }
+
+    function handleYes() {
+      confetti({
+        particleCount: 180,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+
+      document.getElementById('actionArea').style.display = 'none';
+      document.getElementById('funnyStatus').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
